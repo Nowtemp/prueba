@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <h1>Add Alumnos</h1>
+    <form method="POST" action="/add">
+      <input type="text" name="nombre">
+      <input type="text" name="apellido">
+      <input type="submit" value="Add">
+    </form>
+
+    <h1>Listado de Alumnos</h1>
+    <table>
+      {% for dato in datos %}
+        <tr>
+          <td>
+            {{dato[0]}}
+          </td>
+          <td>
+            <form method="POST" action="./update" style="display: inline">
+              <input type="hidden" value="{{dato[0]}}" name="id">
+              <input type="text" value="{{dato[1]}}" name="nombre">
+              <input type="text" value="{{dato[2]}}" name="apellido">
+              <input type="submit" value="Update">
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="./delete" style="display: inline">
+              <input type="hidden" value="{{dato[0]}}" name="id">
+              <input type="submit" value="Delete">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
