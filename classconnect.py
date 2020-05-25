@@ -23,8 +23,6 @@ class Classconnect():
     def DevolverDatos(self):
         return self.cursor.fetchall()
 
-        ###SUUUUUU
-
     def DevolverActualizacion(self):
         return self.cursor.fetchone()
     
